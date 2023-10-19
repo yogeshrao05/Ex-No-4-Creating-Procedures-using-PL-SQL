@@ -1,8 +1,6 @@
 # Ex. No: 4 Creating Procedures using PL/SQL
 
-### AIM:
-
-To create a procedure using PL/SQL.
+### AIM: To create a procedure using PL/SQL.
 
 ### Steps:
 1. Create employee table with following attributes (empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
@@ -13,33 +11,28 @@ To create a procedure using PL/SQL.
 6. Display the employee table
 
 ### Program:
-```
-SQL> CREATE TABLE ep(
-     empid NUMBER,
-     empname VARCHAR(10),
-     dept VARCHAR(10),
-     salary NUMBER
-    );
-CREATE OR REPLACE PROCEDURE emp_data AS
-    BEGIN
-    INSERT INTO ep(empid,empname,dept,salary)
-    values(1,'SHAKTHI','MD',10000000);
-    INSERT INTO ep(empid,empname,dept,salary)
-    values(2,'ARUN','HR',500000);
-    INSERT INTO ep(empid,empname,dept,salary)
-    values(3,'DHANUSH','IT',200000);
-    COMMIT;
-   FOR emp_rec IN (SELECT * FROM ep)LOOP
-   DBMS_OUTPUT.PUT_LINE('EMPLOYEE ID:'||emp_rec.empid||',EMPLOYEE NAME:'|| emp_rec.empname||
-   ',DEPARTMENT:'||emp_rec.dept||',SALARY:'||emp_rec.salary);
-   END LOOP;
-   END;
-  /
-```
+```sql
+create or replace procedure insert_employee_data AS
+begin
+insert into employee (empid,empname,dept,salary)
+values (1,'john','HR',50000);
+insert into employee (empid,empname,dept,salary)
+values (2,'joe','IT',60000);
+insert into employee (empid,empname,dept,salary)
+values (3,'bob','Finance',55000);
+commit;
+end;
+/
+Procedure created.
+begin
+insert_employee_data;
+end;
+/
+PL/SQL procedure successfully completed.
 
+```
 ### Output:
-![WhatsApp Image 2023-09-26 at 23 54 26](https://github.com/ARUNKUMART9968/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/121215794/50848e70-e38e-44fe-84d2-7f6e92d05db9)
-
+![Screenshot 2023-10-03 161442](https://github.com/Adhithyaram29D/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/119393540/326954a4-911d-4009-89e2-7f4253a49949)
 
 ### Result:
-THE PROGRAM HAS BEEN IMPLEMENTED SUCCESSFULLY
+Hence the procedure for using pl/sql is executed successfully.
